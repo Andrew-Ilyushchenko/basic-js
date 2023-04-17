@@ -7,35 +7,30 @@ const { NotImplementedError } = require('../extensions/index.js');
 const chainMaker = {
   
   getLength() {
-    let chain;
-    return chain.length;
+    return chainMaker.length;
   },
   addLink(value) {
-    let chain;
-    chain + (value);
+    chainMaker.push(value);
       return this;
   },
   removeLink(position) {
-    let chain;
     if (
       typeof position !== 'number' ||
       position <= 0 ||
-      position > chain.length
+      position > chainMaker.length
     ) {
-      chain = '';
+      chainMaker = '';
     }
-    chain.splice(position - 1, 1);
+    chainMaker.splice(position - 1, 1);
     return this;
   },
   reverseChain() {
-    let chain;
-    chain.reverse();
+    chainMaker.reverse();
       return this;
   },
   finishChain() {
-    let chain;
-    const result = chain.join('~~');
-    chain = '';
+    const result = chainMaker.join('~~');
+    chainMaker = '';
     return result;
   }
 };
