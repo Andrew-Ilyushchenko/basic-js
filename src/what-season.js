@@ -12,8 +12,11 @@ const { NotImplementedError } = require('../extensions/index.js');
  * 
  */
 function getSeason(date) {
-  let month = date.getMonth();
   let season;
+  if(!date){
+    return ('Unable to determine the time of year!');
+  }else{
+    let month = date.getMonth();
   if (month === 11 || month === 1 || month === 0){
     season = 'winter';
   }
@@ -27,6 +30,7 @@ function getSeason(date) {
     season = 'autumn';
   }
   return season;
+  }
 }
 
 module.exports = {
